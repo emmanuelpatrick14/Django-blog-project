@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% load static %}
+
+
+{% block page_title %} My Blog {% endblock %}
+{% block css_page %} 
+<link rel="stylesheet" href="{% static "blog/post.css" %}"/> 
+<link rel="stylesheet" href="{% static "blog/index.css" %}"/> 
+{% endblock %}
+
+{% block content %}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/me.png' %}" alt=""/>
+        <h2>Welcome to EA's Blog</h2>
+        <p>Latest news, updates, and insights from EA's team</p>
+    </header>
+
+    <p>Hi!..I am EA and i love to blog about tect and the world</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Posts</h2>
+    <ul>
+        {% for post in  posts %}
+            {% include  "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+
+<section id="about">
+    <h2>What I Do</h2>
+
+    <p>I am a freelance writer and blogger. I specialize in exploring the intersection of technology and human values.</p>
+
+    <p> My goal is to keep on growing a s a devloper and help you do the same</p>
+    
+</section>
+{% endblock %}
